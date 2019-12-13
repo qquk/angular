@@ -8,10 +8,15 @@ function fibonachi(count: number): number[] {
     }
     let result: number[] = [1];
     for (let i = 1; i < count; i++) {
-        result[i] = result[i-1] + (result[i-2] !== undefined ? result[i-2] : 0);
+        let prevTwoValue = result[i-2];
+        let nextNumber = result[i-1] + (prevTwoValue !== undefined ? prevTwoValue : 0);
+        if (nextNumber >= count) {
+            break;
+        }
+        result[i] = nextNumber;
     }
     return result;
 }
 
 console.log(isPolyndrom('abccba'));
-console.log(fibonachi(4));
+console.log(fibonachi(27));
