@@ -1,11 +1,11 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-filter-items',
   templateUrl: './filter-items.component.html',
   styleUrls: ['./filter-items.component.css']
 })
-export class FilterItemsComponent implements OnInit {
+export class FilterItemsComponent {
 
   filterButtons = [
     {name: 'all', label: 'All'},
@@ -14,12 +14,8 @@ export class FilterItemsComponent implements OnInit {
   ]
 
   @Output() filterEvent = new EventEmitter();
-  constructor() { }
 
-  ngOnInit() {
-  }
-
-  filterItems(status) {
+  filterItems(status: string): void {
     this.filterEvent.emit(status);
   }
 

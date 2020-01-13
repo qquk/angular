@@ -32,31 +32,30 @@ export class AppComponent {
     this.refresh();
   }
 
-  deleteTodoItem(id) {
+  deleteTodoItem(id: number): void {
     this.visibleItems = this.visibleItems.filter(item => item.id !== id);
   }
 
-  completeTodoItem(id) {
+  completeTodoItem(id: number): void {
     let item = this.visibleItems.find(item => item.id === id);
     item.isCompleted = !item.isCompleted;
     this.refresh();
   }
 
-  filterItems(arr, status) {
+  filterItems(arr: Array<Todo>, status: string): Array<Todo> {
     switch (status) {
-      case 'all': return arr;
       case 'active': return arr.filter((item) => !item.isCompleted);
       case 'complete': return arr.filter((item) => item.isCompleted);
       default: return arr;
     }
   }
 
-  onFilterItems(state) {
+  onFilterItems(state: string): void {
     this.filterState = state;
     this.refresh();
   }
 
-  public refresh() {
+  public refresh(): void {
     this.visibleItems = this.filterItems(this.todoList, this.filterState);
   }
 }

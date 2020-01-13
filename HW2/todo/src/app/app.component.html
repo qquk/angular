@@ -1,6 +1,6 @@
+<app-filter-items (filterEvent)="onFilterItems($event)"></app-filter-items>
 <app-empty-message *ngIf="!visibleItems.length; else elseBlock"></app-empty-message>
 <ng-template #elseBlock>
-  <app-filter-items (filterEvent)="onFilterItems($event)"></app-filter-items>
   <app-todo-list
     [list]="visibleItems"
     (deleteEvent)="deleteTodoItem($event)"

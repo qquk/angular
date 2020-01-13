@@ -13,23 +13,20 @@ export class TodoListItemComponent implements OnInit {
 
   public buttonCaption: string;
 
-
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.changeButtonCaption();
   }
 
-  deleteItem() {
+  deleteItem(): void {
     this.deleteEvent.emit(this.item.id);
   }
 
-  completeItem() {
+  completeItem(): void {
     this.completeEvent.emit(this.item.id);
     this.changeButtonCaption();
   }
 
-  changeButtonCaption() {
+  changeButtonCaption(): void {
     this.buttonCaption = this.item.isCompleted ? 'Completed' : 'Complete';
   }
 
