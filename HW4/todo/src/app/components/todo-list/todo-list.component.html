@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <ul class="list-group">
+    <app-todo-list-item
+      *ngFor="let item of list;"
+      [item]="item"
+      (deleteEvent)="onDeleteItem($event)"
+      (startEditEvent)="onStartEditItem($event)"
+      (editEvent)="onEditItem($event)"
+    ></app-todo-list-item>
+  </ul>
+    <!-- <ng-template ngFor let-item [ngForOf]="list">
+    </ng-template> -->
+</div>
+<!-- /.container -->

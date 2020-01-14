@@ -1,0 +1,13 @@
+<li
+  class="list-group-item"
+  [ngClass]="{'item-completed': item.isCompleted}"
+>
+  <h5>{{ item.title }}</h5>
+  <p>{{ item.body }}</p>
+  <app-todo-list-item-form [item]="item" (submitEvent)="editItem($event)"></app-todo-list-item-form>
+  <div class="btn-group" style="margin-top: 10px;">
+    <button class="btn btn-danger" (click)="deleteItem()">Delete</button>
+    <button class="btn btn-warning" (click)="startEditItem()">{{ editButtonCaption() }}</button>
+    <button class="btn btn-primary" (click)="completeItem()">Complete</button>
+  </div>
+</li>
