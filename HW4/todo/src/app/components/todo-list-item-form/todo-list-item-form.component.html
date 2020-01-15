@@ -1,9 +1,0 @@
-<form *ngIf="item.isEditing" (ngSubmit)="onSubmit(mainForm)" #mainForm="ngForm">
-  <input [(ngModel)]="todoForm.title" type="text" name="title" class="form-control" #title="ngModel" required>
-
-  <button
-    type="submit"
-    class="btn btn-primary mt-3"
-    [disabled]="title.invalid"
-  >Save todo</button>
-</form>
