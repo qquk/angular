@@ -1,0 +1,6 @@
+.item-completed {
+  background-color: slategrey;
+}
+.item-title__completed {
+  text-decoration: line-through;
+}

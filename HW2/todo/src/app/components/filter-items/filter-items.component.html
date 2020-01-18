@@ -1,0 +1,5 @@
+<div class="container">
+  <div class="btn-group">
+    <button *ngFor="let button of filterButtons" class="btn btn-primary" (click)="filterItems(button.name)">{{ button.label }}</button>
+  </div>
+</div>
