@@ -11,9 +11,9 @@ export class FilterItemsComponent {
     {name: 'all', label: 'All'},
     {name: 'active', label: 'Active'},
     {name: 'complete', label: 'Done'}
-  ]
+  ];
 
-  @Output() filterEvent = new EventEmitter();
+  @Output() filterEvent = new EventEmitter<string>();
 
   filterItems(status: string): void {
     this.filterEvent.emit(status);
