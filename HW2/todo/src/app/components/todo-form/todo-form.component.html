@@ -1,0 +1,29 @@
+<div class="todo-form-container mt-5 mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Add todo</h5>
+            <form (ngSubmit)="onSubmit(mainForm)" #mainForm="ngForm">
+              <input [(ngModel)]="todoForm.title" type="text" name="title" class="form-control" #title="ngModel" required>
+
+              <div
+                class="alert alert-danger mt-2"
+                *ngIf="title.invalid && title.dirty"
+              >Input is required</div>
+
+              <button
+                type="submit"
+                class="btn btn-primary mt-3"
+                [disabled]="title.invalid"
+              >Add todo</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container -->
+</div>
+<!-- /.todo-form-container -->

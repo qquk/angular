@@ -39,6 +39,16 @@ export class AppComponent implements OnInit {
     this.visibleItems = this.visibleItems.filter(item => item.id !== id);
   }
 
+  onFormSubmit(todo): void {
+    const newTodo: Todo = {
+      ...todo,
+      isCompleted: false,
+      id: Math.random()
+    }
+
+    this.todoList.push(newTodo);
+  }
+
   completeTodoItem(id: number): void {
     let item = this.visibleItems.find(item => item.id === id);
     item.isCompleted = !item.isCompleted;
@@ -66,6 +76,7 @@ export class AppComponent implements OnInit {
     const editedItem = this.todoList.find(el => el.id === id);
     editedItem.isEditing = !editedItem.isEditing;
   }
+
   saveItem(item): void {
     const editedItem = this.todoList.find(el => el.id === item.id);
     editedItem.title = item.title;
