@@ -1,0 +1,20 @@
+<li
+  class="list-group-item"
+  [ngClass]="{'item-completed': item.isCompleted}"
+>
+  <h5>{{ item.title }}</h5>
+  <p>{{ item.body }}</p>
+  <form *ngIf="item.isEditing" (ngSubmit)="onSubmit(mainForm)" #mainForm="ngForm">
+    <input [(ngModel)]="todoForm.title" type="text" name="title" class="form-control" #title="ngModel" required>
+    <button
+      type="submit"
+      class="btn btn-primary mt-3"
+      [disabled]="title.invalid"
+    >Save todo</button>
+  </form>
+  <div class="btn-group" style="margin-top: 10px;">
+    <button class="btn btn-danger" (click)="deleteItem()">Delete</button>
+    <button class="btn btn-warning" (click)="startEditItem()">{{ editButtonCaption() }}</button>
+    <button class="btn btn-primary" (click)="completeItem()">Complete</button>
+  </div>
+</li>

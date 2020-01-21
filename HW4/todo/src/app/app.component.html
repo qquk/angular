@@ -1,0 +1,19 @@
+<app-todo-form (submitEvent)="onFormSubmit($event)"></app-todo-form>
+<!-- app-todo-list-filters -->
+<app-todo-list
+  [list]="todoList"
+  (deleteEvent)="deleteTodoItem($event)"
+  (startEditItemEvent) = "onStartEdit($event)"
+  (saveItemEvent)="saveItem($event)"
+></app-todo-list>
+
+
+<!-- <app-todo-list
+  [list]="todoList"
+>
+  <app-todo-list-item
+    *ngFor="let item of list;"
+    [item]="item"
+    (deleteEvent)="onDeleteItem($event)"
+  ></app-todo-list-item>
+</app-todo-list> -->
