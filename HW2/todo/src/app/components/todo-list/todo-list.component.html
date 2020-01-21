@@ -5,6 +5,8 @@
        [item]="item"
        (deleteEvent)="onDeleteItem($event)"
        (completeEvent)="onCompleteItem($event)"
+      (startEditEvent)="onStartEditItem($event)"
+      (editEvent)="onEditItem($event)"
     >
 
     </app-todo-list-item>

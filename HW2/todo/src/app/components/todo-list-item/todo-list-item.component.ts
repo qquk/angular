@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Todo} from "../../interfaces/Todo";
 
 @Component({
@@ -8,13 +8,20 @@ import {Todo} from "../../interfaces/Todo";
 })
 export class TodoListItemComponent implements OnInit {
   @Input() item: Todo;
-  @Output() deleteEvent = new EventEmitter();
-  @Output() completeEvent = new EventEmitter();
+  @Output() deleteEvent = new EventEmitter<number>();
+  @Output() completeEvent = new EventEmitter<number>();
+  @Output() startEditEvent = new EventEmitter<number>();
+  @Output() editEvent = new EventEmitter<object>();
+  @ViewChild('mainForm', {static: false}) form;
+  todoForm = {
+    title: ''
+  }
 
   public buttonCaption: string;
 
   ngOnInit(): void {
     this.changeButtonCaption();
+    this.initEditing();
   }
 
   deleteItem(): void {
@@ -28,6 +35,23 @@ export class TodoListItemComponent implements OnInit {
 
   changeButtonCaption(): void {
     this.buttonCaption = this.item.isCompleted ? 'Completed' : 'Complete';
+  }
+
+  startEditItem(): void {
+    this.startEditEvent.emit(this.item.id);
+    this.initEditing();
+  }
+
+  onSubmit(): void {
+    this.editEvent.emit({id: this.item.id, ...this.todoForm});
+  }
+
+  editButtonCaption() {
+    return this.item.isEditing ? 'Cancel' : 'Edit';
+  }
+
+  initEditing() {
+    this.todoForm.title = this.item.title;
   }
 
 }
