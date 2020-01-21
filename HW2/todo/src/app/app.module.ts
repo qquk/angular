@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
@@ -16,7 +17,8 @@ import { FilterItemsComponent } from './components/filter-items/filter-items.com
     FilterItemsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

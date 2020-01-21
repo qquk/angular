@@ -5,6 +5,8 @@
     [list]="visibleItems"
     (deleteEvent)="deleteTodoItem($event)"
     (completeEvent)="completeTodoItem($event)"
+    (startEditItemEvent) = "onStartEdit($event)"
+    (saveItemEvent)="saveItem($event)"
   ></app-todo-list>
 </ng-template>
 

@@ -3,9 +3,17 @@
   [class.item-completed]="item.isCompleted"
 >
   <h5><span [class.item-title__completed]="item.isCompleted">{{ item.title }}</span></h5>
-  <p>{{ item.body }}</p>
+  <form *ngIf="item.isEditing" (ngSubmit)="onSubmit(mainForm)" #mainForm="ngForm">
+    <input [(ngModel)]="todoForm.title" type="text" name="title" class="form-control" #title="ngModel" required>
+    <button
+      type="submit"
+      class="btn btn-primary mt-3"
+      [disabled]="title.invalid"
+    >Save todo</button>
+  </form>
   <div class="btn-group">
     <button class="btn btn-danger" (click)="deleteItem()">Delete</button>
+    <button *ngIf="!item.isCompleted" class="btn btn-warning" (click)="startEditItem()">{{ editButtonCaption() }}</button>
     <button class="btn btn-primary" (click)="completeItem()">{{ buttonCaption  }}</button>
   </div>
 </li>

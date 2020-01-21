@@ -11,16 +11,19 @@ export class AppComponent implements OnInit {
       id: 1,
       title: 'Learn JavaScript',
       isCompleted: true,
+      isEditing: false
     },
     {
       id: 2,
       title: 'Learn Angular',
       isCompleted: false,
+      isEditing: false
     },
     {
       id: 3,
       title: 'Learn something',
       isCompleted: false,
+      isEditing: false
     }
   ];
 
@@ -57,5 +60,15 @@ export class AppComponent implements OnInit {
 
   public refresh(): void {
     this.visibleItems = this.filterItems(this.todoList, this.filterState);
+  }
+
+  onStartEdit(id): void {
+    const editedItem = this.todoList.find(el => el.id === id);
+    editedItem.isEditing = !editedItem.isEditing;
+  }
+  saveItem(item): void {
+    const editedItem = this.todoList.find(el => el.id === item.id);
+    editedItem.title = item.title;
+    editedItem.isEditing = false;
   }
 }
