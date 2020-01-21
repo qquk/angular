@@ -7,6 +7,7 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoListItemComponent } from './components/todo-list-item/todo-list-item.component';
 import { EmptyMessageComponent } from './components/empty-message/empty-message.component';
 import { FilterItemsComponent } from './components/filter-items/filter-items.component';
+import { TodoFormComponent } from './components/todo-form/todo-form.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FilterItemsComponent } from './components/filter-items/filter-items.com
     TodoListComponent,
     TodoListItemComponent,
     EmptyMessageComponent,
-    FilterItemsComponent
+    FilterItemsComponent,
+    TodoFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+<app-todo-form (submitEvent)="onFormSubmit($event)"></app-todo-form>
 <app-filter-items (filterEvent)="onFilterItems($event)"></app-filter-items>
 <app-empty-message *ngIf="!visibleItems.length; else elseBlock"></app-empty-message>
 <ng-template #elseBlock>
